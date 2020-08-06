@@ -33,3 +33,18 @@ export function updateAdmin(data) {
         data
     })
 }
+
+export function getBookList(params) {
+    return request({
+        url: base + '/admin/books',
+        method: 'get',
+        params
+    })
+}
+
+export function deleteBookById(id) {
+    return request({
+        url: base + `/admin/books/${id}`,
+        method: 'delete'
+    })
+}

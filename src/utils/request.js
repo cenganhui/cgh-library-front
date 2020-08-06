@@ -35,6 +35,9 @@ service.interceptors.response.use(
         if (res.code === 401) {
             alert("未登录")
             window.location.replace("/login")
+        } else if (res.code === '0010') {
+            alert("权限不足")
+            window.location.replace("/book")
         } else if (res.code !== '0000') {
             return Promise.reject(new Error(res.msg || 'Error'))
         } else {

@@ -3,7 +3,8 @@ import VueRouter from 'vue-router'
 import Home from '@/views/Home.vue'
 import Login from '@/views/login/Login.vue'
 import Book from '@/views/Book.vue'
-import User from '@/views/User.vue'
+import User from '@/views/System/User.vue'
+import SystemBook from '@/views/System/Book.vue'
 
 Vue.use(VueRouter)
 
@@ -25,6 +26,11 @@ const routes = [{
         path: '/user',
         name: 'User',
         component: User
+      },
+      {
+        path: '/sysbook',
+        name: 'SysBook',
+        component: SystemBook
       }
     ]
   }

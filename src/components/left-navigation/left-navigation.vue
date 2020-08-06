@@ -2,9 +2,12 @@
   <div class="left-navigation">
     <el-row class="tac">
       <el-col>
-        <h2 class="title">系统管理</h2>
+        <div class="sys-title">
+          <i class="el-icon-menu"></i>
+          <span class="title">系统管理</span>
+        </div>
         <el-menu
-          default-active="2"
+          default-active="3"
           class="el-menu-vertical-demo"
           @select="handleSelect"
           background-color="rgb(48, 65, 86)"
@@ -12,11 +15,15 @@
           active-text-color="rgb(64, 158, 255)"
         >
           <el-menu-item index="1">
-            <i class="el-icon-menu"></i>
+            <i class="el-icon-user"></i>
             <span slot="title">用户管理</span>
           </el-menu-item>
           <el-menu-item index="2">
-            <i class="el-icon-document"></i>
+            <i class="el-icon-collection"></i>
+            <span slot="title">图书管理</span>
+          </el-menu-item>
+          <el-menu-item index="3">
+            <i class="el-icon-reading"></i>
             <span slot="title">我的图书</span>
           </el-menu-item>
         </el-menu>
@@ -40,6 +47,8 @@ export default {
       if (key === '1') {
         this.$router.push({ path: '/user' })
       } else if (key === '2') {
+        this.$router.push({ path: '/sysbook' })
+      } else if (key === '3') {
         this.$router.push({ path: '/book' })
       }
     },
@@ -48,8 +57,15 @@ export default {
 </script>
 
 <style>
+.sys-title {
+  color: white;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
 .title {
   color: white;
+  margin-left: 10px;
 }
 
 .left-navigation {
