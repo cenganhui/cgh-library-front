@@ -1,18 +1,48 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <el-container>
+      <el-header>
+        <head-navigation></head-navigation>
+      </el-header>
+      <el-container>
+        <el-aside width="300px">
+          <left-navigation></left-navigation>
+        </el-aside>
+        <el-main>
+          <transition enter-active-class="animate__animated animate__zoomIn">
+            <router-view></router-view>
+          </transition>
+        </el-main>
+      </el-container>
+      <el-footer>Footer</el-footer>
+    </el-container>
   </div>
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+<style>
+.el-footer {
+  background-color: #b3c0d1;
+  color: #333;
+  text-align: center;
+  line-height: 60px;
+}
 
+.el-aside {
+  background-color: #d3dce6;
+  color: #333;
+  text-align: center;
+  justify-content: center;
+}
+</style>
+
+<script>
+import leftNavigation from '@/components/left-navigation/left-navigation.vue'
+import headNavigation from '@/components/head-navigation/head-navigation.vue'
 export default {
   name: 'Home',
   components: {
-    HelloWorld
-  }
+    leftNavigation,
+    headNavigation,
+  },
 }
 </script>
