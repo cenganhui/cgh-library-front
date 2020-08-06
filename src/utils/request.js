@@ -32,7 +32,10 @@ service.interceptors.request.use(
 service.interceptors.response.use(
     response => {
         const res = response.data
-        if (res.code !== '0000') {
+        if (res.code === 401) {
+            alert("未登录")
+            window.location.replace("/login")
+        } else if (res.code !== '0000') {
             return Promise.reject(new Error(res.msg || 'Error'))
         } else {
             return res

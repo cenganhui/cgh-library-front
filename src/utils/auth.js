@@ -6,11 +6,11 @@ const nickName = 'nickName';
 
 export function getLoginInfo() {
     return {
-        tokenKey: localStorage.getItem(token),
-        adminKey: localStorage.getItem(admin),
-        idKey: localStorage.getItem(id),
-        usernameKey: localStorage.getItem(username),
-        nickNameKey: localStorage.getItem(nickName),
+        token: localStorage.getItem(token),
+        admin: localStorage.getItem(admin),
+        id: localStorage.getItem(id),
+        username: localStorage.getItem(username),
+        nickName: localStorage.getItem(nickName),
     }
 }
 

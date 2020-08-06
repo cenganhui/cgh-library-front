@@ -21,8 +21,6 @@
         </el-form-item>
       </el-form>
     </el-main>
-
-    <el-footer>Footer</el-footer>
   </el-container>
 </template>
 

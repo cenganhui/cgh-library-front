@@ -1,16 +1,19 @@
-import Vue from 'vue';
-import App from './App.vue';
-import router from './router';
-import store from './store';
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
+import Vue from 'vue'
+import App from './App.vue'
+import router from './router'
+import store from './store'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+import common from '@/components/common/common.js'
 
-Vue.config.productionTip = false;
+Vue.config.productionTip = false
 
-Vue.use(ElementUI);
+Vue.use(ElementUI)
+
+Vue.prototype.lib = common
 
 new Vue({
   router,
   store,
   render: h => h(App)
-}).$mount('#app');
+}).$mount('#app')

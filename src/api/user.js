@@ -10,3 +10,10 @@ export function login(data) {
         data: data
     })
 }
+
+export function logout() {
+    return request({
+        url: base + '/auth/logout',
+        method: 'delete'
+    })
+}
