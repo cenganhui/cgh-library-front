@@ -71,7 +71,7 @@ export default {
 .left-navigation {
   background-color: rgb(48, 65, 86);
   height: 100%;
-  margin-right: 8px;
+  margin-right: 10px;
 }
 
 .el-col > .el-menu {

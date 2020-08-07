@@ -12,7 +12,7 @@
               style="width: 200px;"
               class="filter-item"
             />&nbsp;&nbsp;&nbsp;&nbsp;
-            <el-button type="primary" size="small" @click="getAllBooks">搜索</el-button>
+            <el-button type="primary" size="small" @click="getAllBooks" icon="el-icon-search">搜索</el-button>
           </div>
         </el-col>
         <el-col :span="12">
@@ -35,6 +35,7 @@
                 size="small"
                 type="success"
                 @click="submitUpload"
+                icon="el-icon-upload"
               >上传到服务器</el-button>
             </el-upload>
           </div>
@@ -78,6 +79,7 @@ import { base } from '@/api/base.js'
 export default {
   data() {
     return {
+      // pSrc: '',
       searchInfo: {
         name: '',
       },
@@ -117,6 +119,15 @@ export default {
     },
     handleClick(row) {
       console.log(row)
+      this.$router.push({
+        name: 'Reader',
+        params: {
+          id: row.id,
+          initPage: 8,
+          filePath: row.filePath,
+          url: row.url
+        }
+      })
     },
     deleteBook(row) {
       this.$confirm('这将永久删除该图书，是否继续？', '提示', {
@@ -158,6 +169,9 @@ export default {
       this.$refs.upload.clearFiles()
     },
   },
+  // mounted: function () {
+  //   this.loadPDF()
+  // },
 }
 </script>
 
@@ -168,5 +182,12 @@ export default {
 
 .el-upload__tip {
   margin-left: 10px;
+}
+.wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  bottom: 0;
 }
 </style>

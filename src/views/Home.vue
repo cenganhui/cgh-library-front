@@ -9,8 +9,8 @@
           <left-navigation></left-navigation>
         </div>
       </el-col>
-      <el-col :span="21" style="height: calc(100% - 80px); margin-top: 20px">
-        <div>
+      <el-col :span="21" style="height: calc(100% - 80px); margin-top: 10px">
+        <div style="height: 100%">
           <transition enter-active-class="animate__animated animate__zoomIn">
             <router-view></router-view>
           </transition>
@@ -37,13 +37,6 @@
   color: rgb(99, 171, 219);
   text-align: center;
   line-height: 60px;
-}
-
-.el-aside {
-  background-color: #d3dce6;
-  color: #333;
-  text-align: center;
-  justify-content: center;
 }
 </style>
 

@@ -28,3 +28,11 @@ export function uploadBook(data) {
         data
     })
 }
+
+export function updateBook(data) {
+    return request({
+        url: base + '/books',
+        method: 'put',
+        data
+    })
+}
