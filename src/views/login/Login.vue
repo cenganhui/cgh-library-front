@@ -1,6 +1,5 @@
 <template>
   <div class="login">
-    
     <el-form
       :model="loginForm"
       :rules="loginRules"
@@ -8,7 +7,7 @@
       label-width="auto"
       class="login-form"
     >
-    <h1 class="login-title">CGH的图书馆</h1>
+      <h1 class="login-title">CGH的图书馆</h1>
       <el-form-item label="用户名" prop="username">
         <el-input v-model="loginForm.username"></el-input>
       </el-form-item>
@@ -17,7 +16,7 @@
       </el-form-item>
       <el-form-item>
         <el-button :loading="loading" type="primary" @click="login('loginForm')">登录</el-button>
-        <el-button @click="resetForm('loginForm')">注册</el-button>
+        <el-button @click="toRegister">注册</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -40,7 +39,7 @@ export default {
         ],
         password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
       },
-      loading: false
+      loading: false,
     }
   },
   methods: {
@@ -76,8 +75,8 @@ export default {
         }
       })
     },
-    resetForm(loginForm) {
-      this.$refs[loginForm].resetFields()
+    toRegister() {
+      this.$router.push({ path: '/register' })
     },
   },
 }

@@ -14,11 +14,11 @@
           text-color="#fff"
           active-text-color="rgb(64, 158, 255)"
         >
-          <el-menu-item index="1">
+          <el-menu-item v-if="admin" index="1">
             <i class="el-icon-user"></i>
             <span slot="title">用户管理</span>
           </el-menu-item>
-          <el-menu-item index="2">
+          <el-menu-item v-if="admin" index="2">
             <i class="el-icon-collection"></i>
             <span slot="title">图书管理</span>
           </el-menu-item>
@@ -33,12 +33,21 @@
 </template>
 
 <script>
+import { getLoginInfo } from '@/utils/auth.js'
 export default {
+  data() {
+    return {
+      admin: false,
+    }
+  },
   created() {
     this.init()
   },
   methods: {
     init() {
+      if (getLoginInfo().admin === 'true') {
+        this.admin = true
+      }
       this.$router.push({ path: '/book' })
     },
     handleSelect(key) {

@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { updateBook } from '@/api/book.js'
+import { updateBook, persistById } from '@/api/book.js'
 export default {
   data() {
     return {
@@ -53,6 +53,11 @@ export default {
     },
   },
   beforeDestroy() {
+    persistById(this.bookId).then(res => {
+      if (res.code === '0000') {
+        console.log('persist success')
+      }
+    })
     clearInterval(this.timer)
   },
 }

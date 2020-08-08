@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '@/views/Home.vue'
 import Login from '@/views/login/Login.vue'
+import Register from '@/views/register/Register.vue'
 import Book from '@/views/Book.vue'
 import User from '@/views/System/User.vue'
 import SystemBook from '@/views/System/Book.vue'
@@ -13,6 +14,11 @@ const routes = [{
     path: '/login',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register
   },
   {
     path: '/',

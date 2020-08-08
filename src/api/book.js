@@ -36,3 +36,10 @@ export function updateBook(data) {
         data
     })
 }
+
+export function persistById(id) {
+    return request({
+        url: base + `/books/persist/${id}`,
+        method: 'get'
+    })
+}
