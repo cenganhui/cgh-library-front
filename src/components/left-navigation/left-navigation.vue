@@ -26,6 +26,10 @@
             <i class="el-icon-reading"></i>
             <span slot="title">我的图书</span>
           </el-menu-item>
+          <el-menu-item index="4">
+            <i class="el-icon-reading"></i>
+            <span slot="title">个人信息</span>
+          </el-menu-item>
         </el-menu>
       </el-col>
     </el-row>
@@ -59,6 +63,8 @@ export default {
         this.$router.push({ path: '/sysbook' })
       } else if (key === '3') {
         this.$router.push({ path: '/book' })
+      } else if (key === '4') {
+        this.$router.push({ path: '/profile' })
       }
     },
   },

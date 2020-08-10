@@ -25,3 +25,19 @@ export function logout() {
         method: 'delete'
     })
 }
+
+export function updateUser(data) {
+    return request({
+        url: base + '/users',
+        method: 'put',
+        data
+    })
+}
+
+export function updatePassword(data) {
+    return request({
+        url: base + '/users/password',
+        method: 'put',
+        data
+    })
+}

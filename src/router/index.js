@@ -7,6 +7,7 @@ import Book from '@/views/Book.vue'
 import User from '@/views/System/User.vue'
 import SystemBook from '@/views/System/Book.vue'
 import Reader from '@/views/Reader.vue'
+import Profile from '@/views/Profile.vue'
 
 Vue.use(VueRouter)
 
@@ -43,6 +44,11 @@ const routes = [{
         path: '/reader',
         name: 'Reader',
         component: Reader
+      },
+      {
+        path: '/profile',
+        name: 'Profile',
+        component: Profile
       }
     ]
   }

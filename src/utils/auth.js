@@ -22,6 +22,10 @@ export function setLoginInfo(loginInfo) {
     localStorage.setItem(nickName, loginInfo.nickName);
 }
 
+export function setNickName(value) {
+    localStorage.setItem(nickName, value)
+}
+
 export function removeLoginInfo() {
     localStorage.removeItem(token);
     localStorage.removeItem(admin);
