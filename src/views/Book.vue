@@ -123,7 +123,7 @@ export default {
         name: 'Reader',
         params: {
           id: row.id,
-          initPage: 8,
+          initPage: row.currentPage,
           filePath: row.filePath,
           url: row.url
         }
