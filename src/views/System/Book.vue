@@ -12,7 +12,7 @@
               style="width: 200px;"
               class="filter-item"
             />&nbsp;&nbsp;&nbsp;&nbsp;
-            <el-button type="primary" size="small" @click="getAllBooks">搜索</el-button>
+            <el-button type="primary" size="small" @click="getAllBooks" icon="el-icon-search">搜索</el-button>
           </div>
         </el-col>
         <el-col :span="12">

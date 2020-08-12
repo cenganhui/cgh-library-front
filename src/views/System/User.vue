@@ -9,8 +9,8 @@
         style="width: 200px;"
         class="filter-item"
       />&nbsp;&nbsp;&nbsp;&nbsp;
-      <el-button type="primary" size="small" @click="getAllUsers">搜索</el-button>
-      <el-button type="primary" size="small" @click="showDialog('add', null)">添加</el-button>
+      <el-button type="primary" size="small" @click="getAllUsers" icon="el-icon-search">搜索</el-button>
+      <el-button type="primary" size="small" @click="showDialog('add', null)" icon="el-icon-plus">添加</el-button>
     </div>
     <div style="height: 20px"></div>
     <el-table :data="tableData" :border="true" style="width: 100%">

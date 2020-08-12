@@ -17,7 +17,7 @@
           >
             <el-submenu index="1" style="width: 100%; text-align: center">
               <template slot="title">{{ nickName }}</template>
-              <el-menu-item index="1-1">个人中心</el-menu-item>
+              <!-- <el-menu-item index="1-1">个人中心</el-menu-item> -->
               <el-menu-item index="1-2">退出</el-menu-item>
             </el-submenu>
           </el-menu>

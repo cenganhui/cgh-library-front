@@ -29,7 +29,7 @@
               :limit="1"
             >
               <span slot="tip" class="el-upload__tip">只能上传 pdf 文件</span>
-              <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
+              <el-button slot="trigger" size="small" type="primary" icon="el-icon-folder-opened">选取文件</el-button>
               <el-button
                 style="margin-left: 10px;"
                 size="small"

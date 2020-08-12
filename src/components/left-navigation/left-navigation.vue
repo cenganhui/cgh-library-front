@@ -27,7 +27,7 @@
             <span slot="title">我的图书</span>
           </el-menu-item>
           <el-menu-item index="4">
-            <i class="el-icon-reading"></i>
+            <i class="el-icon-setting"></i>
             <span slot="title">个人信息</span>
           </el-menu-item>
         </el-menu>
