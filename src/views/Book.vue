@@ -41,8 +41,6 @@
           </div>
         </el-col>
       </el-row>
-
-      <!-- <el-button type="primary" size="small" @click="uploadBook">上传图书</el-button> -->
     </div>
     <div style="height: 20px"></div>
     <el-table :data="tableData" :border="true" style="width: 100%">
@@ -54,6 +52,7 @@
       <el-table-column fixed="right" label="操作">
         <template slot-scope="scope">
           <el-button size="mini" type="primary" @click="handleClick(scope.row)">阅读</el-button>
+          <el-button size="mini" type="primary" @click="download(scope.row)">下载</el-button>
           <el-button size="mini" type="danger" @click="deleteBook(scope.row)">删除</el-button>
         </template>
       </el-table-column>
@@ -61,7 +60,7 @@
     <div style="height: 20px"></div>
     <div>
       <el-pagination
-        style="padding-top:15px;background-color: #fff;padding-bottom: 15px;"
+        style="padding-top: 15px; background-color: #fff; padding-bottom: 15px;"
         layout="prev, pager, next, total"
         :current-page.sync="pageInfo.currentPage"
         :page-size.sync="pageInfo.pageSize"
@@ -73,13 +72,13 @@
 </template>
 
 <script>
-import { getBookList, deleteBookById } from '@/api/book.js'
+import { getBookList, deleteBookById, downloadBookById } from '@/api/book.js'
 import { getLoginInfo } from '@/utils/auth.js'
 import { base } from '@/api/base.js'
+import { downloadUtil } from '@/utils/downloadUtil.js'
 export default {
   data() {
     return {
-      // pSrc: '',
       searchInfo: {
         name: '',
       },
@@ -118,16 +117,25 @@ export default {
       this.getAllBooks()
     },
     handleClick(row) {
-      console.log(row)
+      // console.log(row)
       this.$router.push({
         name: 'Reader',
         params: {
           id: row.id,
           initPage: row.currentPage,
           filePath: row.filePath,
-          url: row.url
-        }
+          url: row.url,
+        },
       })
+    },
+    download(row) {
+      downloadBookById(row.id)
+        .then((res) => {
+          downloadUtil(res, row.name)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
     },
     deleteBook(row) {
       this.$confirm('这将永久删除该图书，是否继续？', '提示', {
@@ -153,9 +161,6 @@ export default {
           })
         })
     },
-    uploadFile(file) {
-      console.log(file)
-    },
     submitUpload() {
       this.$refs.upload.submit()
     },
@@ -169,9 +174,6 @@ export default {
       this.$refs.upload.clearFiles()
     },
   },
-  // mounted: function () {
-  //   this.loadPDF()
-  // },
 }
 </script>
 

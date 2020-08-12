@@ -40,7 +40,7 @@
     <div style="height: 20px"></div>
     <div>
       <el-pagination
-        style="padding-top:15px;background-color: #fff;padding-bottom: 15px;"
+        style="padding-top: 15px; background-color: #fff; padding-bottom: 15px;"
         layout="prev, pager, next, total"
         :current-page.sync="pageInfo.currentPage"
         :page-size.sync="pageInfo.pageSize"
@@ -140,9 +140,6 @@ export default {
     },
     pageChange() {
       this.getAllBooks()
-    },
-    handleClick(row) {
-      console.log(row)
     },
     deleteUser(row) {
       this.$confirm('是否删除该用户？', '提示', {

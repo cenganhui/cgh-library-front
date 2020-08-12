@@ -50,7 +50,7 @@ export default {
           //   console.log(this.loginForm.username);
           login(this.loginForm)
             .then((response) => {
-              console.log(response)
+              // console.log(response)
               const loginInfo = {
                 token: response.data.token,
                 admin: response.data.user.admin,

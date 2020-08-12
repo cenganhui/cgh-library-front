@@ -20,10 +20,6 @@
           style="margin-left: 10px"
         >修改密码</el-button>
       </el-form-item>
-      <!-- <el-form-item>
-        <el-button type="primary" @click="submitForm('userForm')">立即创建</el-button>
-        <el-button @click="resetForm('userForm')">重置</el-button>
-      </el-form-item>-->
     </el-form>
     <el-dialog
       :title="dialogType === 'updateNickName' ? '修改昵称' : '修改密码'"
@@ -95,16 +91,6 @@ export default {
     init() {
       this.userForm.username = getLoginInfo().username
       this.userForm.nickName = getLoginInfo().nickName
-    },
-    submitForm(formName) {
-      this.$refs[formName].validate((valid) => {
-        if (valid) {
-          alert('submit!')
-        } else {
-          console.log('error submit!!')
-          return false
-        }
-      })
     },
     resetForm(formName) {
       this.$refs[formName].resetFields()

@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <el-row style="height: 100%;margin-left: 0">
+    <el-row style="height: 100%; margin-left: 0">
       <el-col :span="24" class="head-el-col">
         <head-navigation></head-navigation>
       </el-col>

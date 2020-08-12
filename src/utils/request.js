@@ -31,6 +31,7 @@ service.interceptors.request.use(
 service.interceptors.response.use(
     response => {
         const res = response.data
+        console.log(res)
         if (res.code === 401) {
             alert("未登录")
             // vue.$router.push({ path: '/login' })
@@ -39,6 +40,8 @@ service.interceptors.response.use(
             alert("权限不足")
             // vue.$router.push({ path: '/login' })
             window.location.replace("/#/book")
+        } else if (res.type === 'text/xml') {
+            return res
         } else if (res.code !== '0000') {
             return Promise.reject(new Error(res.msg || 'Error'))
         } else {

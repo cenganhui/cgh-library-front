@@ -1,5 +1,7 @@
+/**
+ * notification 通知
+ */
 export default ({
-    // notification 通知
     notificationSuccess(that, msg) {
         that.$notify({
             title: '成功',

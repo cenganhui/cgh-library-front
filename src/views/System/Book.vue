@@ -19,7 +19,6 @@
           <div style="float: right; margin-right: 20px"></div>
         </el-col>
       </el-row>
-      <!-- <el-button type="primary" size="small" @click="uploadBook">上传图书</el-button> -->
     </div>
     <div style="height: 20px"></div>
     <el-table :data="tableData" :border="true" style="width: 100%">
@@ -39,7 +38,7 @@
     <div style="height: 20px"></div>
     <div>
       <el-pagination
-        style="padding-top:15px;background-color: #fff;padding-bottom: 15px;"
+        style="padding-top: 15px; background-color: #fff; padding-bottom: 15px;"
         layout="prev, pager, next, total"
         :current-page.sync="pageInfo.currentPage"
         :page-size.sync="pageInfo.pageSize"
@@ -112,11 +111,10 @@ export default {
             message: '已取消删除',
           })
         })
-    }
+    },
   },
 }
 </script>
 
 <style>
-
 </style>

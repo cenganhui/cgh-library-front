@@ -2,7 +2,10 @@ import {
     base
 } from '@/api/base.js'
 import request from '@/utils/request.js'
-
+/**
+ * 用户登录
+ * @param {登录信息} data 
+ */
 export function login(data) {
     return request({
         url: base + '/auth/login',
@@ -11,6 +14,10 @@ export function login(data) {
     })
 }
 
+/**
+ * 用户注册
+ * @param {注册信息} data 
+ */
 export function register(data) {
     return request({
         url: base + '/auth/register',
@@ -19,6 +26,9 @@ export function register(data) {
     })
 }
 
+/**
+ * 用户登出
+ */
 export function logout() {
     return request({
         url: base + '/auth/logout',
@@ -26,6 +36,10 @@ export function logout() {
     })
 }
 
+/**
+ * 修改用户信息
+ * @param {用户信息} data 
+ */
 export function updateUser(data) {
     return request({
         url: base + '/users',
@@ -34,6 +48,10 @@ export function updateUser(data) {
     })
 }
 
+/**
+ * 修改密码
+ * @param {新旧密码} data 
+ */
 export function updatePassword(data) {
     return request({
         url: base + '/users/password',
