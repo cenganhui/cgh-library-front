@@ -2,15 +2,15 @@
 
 **提供用户上传管理 pdf 图书的功能，并且可进行阅读。在打开阅读器阅读时，会开启定时任务，每 10s 向服务端更新当前阅读进度。**
 
-[我的图书服务端](https://github.com/cenganhui/cgh-library-server)
+- [我的图书服务端](https://github.com/cenganhui/cgh-library-server)
 
 **参考资料**
 
-[Vue.js](https://cn.vuejs.org/)
-[Vue CLI](https://cli.vuejs.org/zh/guide/)
-[Element UI](https://element.eleme.cn/#/zh-CN)
-[PDF.js](http://mozilla.github.io/pdf.js/)
-[Animate.css](https://animate.style/)
+- [Vue.js](https://cn.vuejs.org/)
+- [Vue CLI](https://cli.vuejs.org/zh/guide/)
+- [Element UI](https://element.eleme.cn/#/zh-CN)
+- [PDF.js](http://mozilla.github.io/pdf.js/)
+- [Animate.css](https://animate.style/)
 
 ### 注册页面
 ![cenganhui/TOIMGae1f80812033110N.png](http://akumacgh.cn:8088/cenganhui/TOIMGae1f80812033110N.png)

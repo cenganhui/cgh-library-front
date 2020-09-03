@@ -30,6 +30,10 @@
             <i class="el-icon-setting"></i>
             <span slot="title">个人信息</span>
           </el-menu-item>
+          <el-menu-item index="5">
+            <i class="el-icon-setting"></i>
+            <span slot="title">扫码登录</span>
+          </el-menu-item>
         </el-menu>
       </el-col>
     </el-row>
@@ -65,6 +69,8 @@ export default {
         this.$router.push({ path: '/book' })
       } else if (key === '4') {
         this.$router.push({ path: '/profile' })
+      } else if (key === '5') {
+        this.$router.push( { path: '/tiebalogin' })
       }
     },
   },
