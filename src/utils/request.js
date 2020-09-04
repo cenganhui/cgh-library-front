@@ -6,7 +6,7 @@ import {
 const service = axios.create({
     baseURL: '',
     withCredentials: true,
-    timeout: 10000
+    timeout: 30000
 });
 
 // request interceptor

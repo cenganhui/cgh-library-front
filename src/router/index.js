@@ -9,6 +9,8 @@ import SystemBook from '@/views/System/Book.vue'
 import Reader from '@/views/Reader.vue'
 import Profile from '@/views/Profile.vue'
 import TieBaLogin from '@/views/TieBaLogin.vue'
+import TieBa from '@/views/TieBa.vue'
+import TieBaInfo from '@/views/TieBaInfo.vue'
 
 Vue.use(VueRouter)
 
@@ -55,6 +57,16 @@ const routes = [{
         path: '/tiebalogin',
         name: 'TieBaLogin',
         component: TieBaLogin
+      },
+      {
+        path: '/tiebainfo',
+        name: 'TieBaInfo',
+        component: TieBaInfo
+      },
+      {
+        path: '/tieba',
+        name: 'TieBa',
+        component: TieBa
       }
     ]
   }

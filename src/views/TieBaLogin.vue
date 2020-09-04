@@ -1,10 +1,13 @@
 <template>
   <div>
-    <el-button type="primary" @click="showQRCode()">二维码</el-button>
-    <el-button type="primary" @click="showQRCodeLoginStatus()">状态</el-button>
-    <div>
-      <img :src="qrCode.codeUrl" alt />
-    </div>
+    <el-card class="box-card" style="text-align: center">
+      <h3>登录二维码</h3>
+      <div>
+        <img :src="qrCode.codeUrl" alt />
+      </div>
+      <h3>确认登录后点击开始绑定签到</h3>
+      <el-button :loading="loading" type="primary" @click="showQRCodeLoginStatus()">开始绑定签到</el-button>
+    </el-card>
   </div>
 </template>
 
@@ -19,9 +22,16 @@ export default {
         sign: '',
         time: '',
       },
+      loading: false
     }
   },
+  created() {
+    this.init()
+  },
   methods: {
+    init() {
+      this.showQRCode()
+    },
     showQRCode() {
       getQRCode().then((res) => {
         if (res.code === '0000') {
@@ -34,14 +44,22 @@ export default {
       })
     },
     showQRCodeLoginStatus() {
+      this.loading = true
       const data = {
         sign: this.qrCode.sign,
         gid: this.qrCode.gid,
       }
       getQRCodeLoginStatus(data).then((res) => {
         if (res.code === '0000') {
-          console.log(res.data)
+          this.lib.notificationSuccess(this, '成功')
+          // console.log(res.data)
+          this.loading = false
+        } else {
+          this.lib.notificationWarning(this, res.msg || '失败，请重试')
         }
+      })
+      .catch(() => {
+        this.lib.notificationWarning(this, '失败，请重试')
       })
     },
   },

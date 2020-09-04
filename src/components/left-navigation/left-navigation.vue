@@ -31,8 +31,16 @@
             <span slot="title">个人信息</span>
           </el-menu-item>
           <el-menu-item index="5">
-            <i class="el-icon-setting"></i>
+            <i class="el-icon-full-screen"></i>
             <span slot="title">扫码登录</span>
+          </el-menu-item>
+          <el-menu-item index="6">
+            <i class="el-icon-s-order"></i>
+            <span slot="title">贴吧信息</span>
+          </el-menu-item>
+          <el-menu-item index="7">
+            <i class="el-icon-s-data"></i>
+            <span slot="title">签到列表</span>
           </el-menu-item>
         </el-menu>
       </el-col>
@@ -71,6 +79,10 @@ export default {
         this.$router.push({ path: '/profile' })
       } else if (key === '5') {
         this.$router.push( { path: '/tiebalogin' })
+      } else if (key === '6') {
+        this.$router.push( { path: '/tiebainfo' })
+      } else if (key === '7') {
+        this.$router.push( { path: '/tieba' })
       }
     },
   },
