@@ -16,6 +16,7 @@
     <el-table :data="tableData" :border="true" style="width: 100%">
       <el-table-column :show-overflow-tooltip="true" prop="username" label="用户名"></el-table-column>
       <el-table-column :show-overflow-tooltip="true" prop="nickName" label="昵称"></el-table-column>
+      <el-table-column :show-overflow-tooltip="true" prop="email" label="邮箱"></el-table-column>
       <el-table-column :show-overflow-tooltip="true" prop="createBy" label="创建者"></el-table-column>
       <el-table-column :show-overflow-tooltip="true" prop="createTime" label="创建时间"></el-table-column>
       <el-table-column :show-overflow-tooltip="true" prop="updateBy" label="更新者"></el-table-column>
@@ -92,13 +93,13 @@ export default {
   data() {
     return {
       searchInfo: {
-        username: '',
+        username: ''
       },
       tableData: [],
       pageInfo: {
         currentPage: 1,
         pageSize: 10,
-        total: 0,
+        total: 0
       },
       dialogType: '',
       dialogVisible: false,
@@ -106,8 +107,9 @@ export default {
         id: '',
         username: '',
         nickName: '',
+        email: '',
         password: '',
-        admin: false,
+        admin: false
       },
       rules: {
         username: [
@@ -139,7 +141,7 @@ export default {
       })
     },
     pageChange() {
-      this.getAllBooks()
+      this.getAllUsers()
     },
     deleteUser(row) {
       this.$confirm('是否删除该用户？', '提示', {
@@ -190,6 +192,7 @@ export default {
         id: this.createInfo.id === '' ? undefined : this.createInfo.id,
         username: this.createInfo.username,
         nickName: this.createInfo.nickName,
+        email: '',
         password: this.createInfo.password,
         admin: this.createInfo.admin,
       }

@@ -50,13 +50,14 @@ export default {
           //   console.log(this.loginForm.username);
           login(this.loginForm)
             .then((response) => {
-              // console.log(response)
+              // console.log(response.data)
               const loginInfo = {
                 token: response.data.token,
                 admin: response.data.user.admin,
                 id: response.data.user.id,
                 username: response.data.user.username,
                 nickName: response.data.user.nickName,
+                email: response.data.user.email
               }
               setLoginInfo(loginInfo)
               this.lib.notificationSuccess(this, '登录成功')

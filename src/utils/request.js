@@ -31,7 +31,7 @@ service.interceptors.request.use(
 service.interceptors.response.use(
     response => {
         const res = response.data
-        console.log(res)
+        // console.log(res)
         if (res.code === 401) {
             alert("未登录")
             // vue.$router.push({ path: '/login' })

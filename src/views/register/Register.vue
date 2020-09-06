@@ -14,6 +14,9 @@
       <el-form-item label="昵称" prop="nickName">
         <el-input v-model="registerForm.nickName"></el-input>
       </el-form-item>
+      <el-form-item label="邮箱" prop="email">
+        <el-input v-model="registerForm.email"></el-input>
+      </el-form-item>
       <el-form-item label="密码" prop="password">
         <el-input v-model="registerForm.password" show-password></el-input>
       </el-form-item>
@@ -33,14 +36,16 @@ export default {
       registerForm: {
         username: '',
         nickName: '',
-        password: '',
+        email: '',
+        password: ''
       },
       registerRules: {
         username: [
           { required: true, message: '请输入用户名', trigger: 'blur' },
         ],
         nickName: [{ required: true, message: '请输入昵称', trigger: 'blur' }],
-        password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
+        email: [{ required: true, message: '请输入邮箱', trigger: 'blur' }],
+        password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
       },
       loading: false,
     }

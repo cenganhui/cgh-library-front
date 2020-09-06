@@ -12,6 +12,14 @@
           style="margin-left: 10px"
         >修改昵称</el-button>
       </el-form-item>
+      <el-form-item label="邮箱" prop="email" style="width: 600px">
+        <el-input v-model="userForm.email" style="width: 300px" :disabled="true"></el-input>
+        <el-button
+          type="primary"
+          @click="showDialog('updateEmail')"
+          style="margin-left: 10px"
+        >修改邮箱</el-button>
+      </el-form-item>
       <el-form-item label="密码" prop="password" style="width: 600px">
         <el-input v-model="userForm.password" style="width: 300px" :disabled="true"></el-input>
         <el-button
@@ -22,7 +30,7 @@
       </el-form-item>
     </el-form>
     <el-dialog
-      :title="dialogType === 'updateNickName' ? '修改昵称' : '修改密码'"
+      :title="title"
       :visible.sync="dialogVisible"
       :close-on-click-modal="false"
       width="40%"
@@ -38,7 +46,7 @@
           <el-input v-model="updateInfo.oldPassword" size="small" style="width: 400px"></el-input>
         </el-form-item>
         <el-form-item
-          :label="dialogType === 'updateNickName' ? '新昵称' : '新密码'"
+          :label="label"
           prop="nickNameOrPassword"
         >
           <el-input v-model="updateInfo.nickNameOrPassword" size="small" style="width: 400px"></el-input>
@@ -53,7 +61,7 @@
 </template>
 
 <script>
-import { getLoginInfo, setNickName } from '@/utils/auth.js'
+import { getLoginInfo, setNickName, setEmail } from '@/utils/auth.js'
 import { updateUser, updatePassword } from '@/api/user.js'
 export default {
   data() {
@@ -61,7 +69,8 @@ export default {
       userForm: {
         username: '',
         nickName: '',
-        password: '******',
+        email: '',
+        password: '******'
       },
       updateInfo: {
         id: '',
@@ -81,6 +90,8 @@ export default {
         },
       },
       dialogType: '',
+      title: '',
+      label: '',
       dialogVisible: false,
     }
   },
@@ -91,12 +102,33 @@ export default {
     init() {
       this.userForm.username = getLoginInfo().username
       this.userForm.nickName = getLoginInfo().nickName
+      this.userForm.email = getLoginInfo().email
     },
     resetForm(formName) {
       this.$refs[formName].resetFields()
     },
+    showTitle() {
+      if (this.dialogType === 'updateNickName') {
+        this.title = '修改昵称'
+      } else if (this.dialogType === 'updateEmail') {
+        this.title = '修改邮箱'
+      } else {
+        this.title = '修改密码'
+      }
+    },
+    showLabel() {
+      if (this.dialogType === 'updateNickName') {
+        this.label = '新昵称'
+      } else if (this.dialogType === 'updateEmail') {
+        this.label = '新邮箱'
+      } else {
+        this.label = '新密码'
+      }
+    },
     showDialog(type) {
       this.dialogType = type
+      this.showTitle()
+      this.showLabel()
       this.updateInfo.id = getLoginInfo().id
       this.updateInfo.oldPassword = ''
       this.updateInfo.nickNameOrPassword = ''
@@ -114,6 +146,28 @@ export default {
               .then((res) => {
                 if (res.code === '0000') {
                   setNickName(res.data.nickName)
+                  this.init()
+                  this.lib.notificationSuccess(this, '修改成功')
+                  this.dialogVisible = false
+                } else {
+                  this.lib.notificationWarning(
+                    this,
+                    res.msg || '修改失败，请重试'
+                  )
+                }
+              })
+              .catch((error) => {
+                this.lib.notificationWarning(this, '修改失败，' + error)
+              })
+          } else if (this.dialogType === 'updateEmail') {
+            const data = {
+              id: this.updateInfo.id,
+              email: this.updateInfo.nickNameOrPassword,
+            }
+            updateUser(data)
+              .then((res) => {
+                if (res.code === '0000') {
+                  setEmail(res.data.email)
                   this.init()
                   this.lib.notificationSuccess(this, '修改成功')
                   this.dialogVisible = false
